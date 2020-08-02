@@ -1,35 +1,48 @@
-import { StatusBar } from 'expo-status-bar';
-import React,{useState} from 'react';
-import { StyleSheet, Text, View,TextInput } from 'react-native';
-import HomeComponent from './components/HomeCmponent'
+import React,{useState, useEffect} from 'react'
+import { StyleSheet,Text,View } from 'react-native'
+
+const App =  props =>{
+  const [testing,settesting]=  useState(500)
+  useEffect(()=>{
+      console.log('component did mount')
+    },[])
+
+  useEffect(()=>{
+     console.log('ini adalah did update')
+  },[testing])
+  
+  useEffect(()=>{
+    return () =>{
+       settesting(100)
+      console.log('ini adalah unmonting')
+    }
+  },[testing])
 
 
-export default function App() {
-  const [testing,setTesting]= useState()
-  return (
-    // <View style={styles.container}>
-    //   <HomeComponent testing="ini saya menggunakan file dari home component" />
-    //   <TextInput 
-    //   style={{height:40,width:300,borderColor:'gray',borderWidth:1}}
-    //   onChangeText={text=> setTesting(text)}
-    //   />
-    //   <Text>{testing}</Text>
-    //   <StatusBar style="auto" />
-    // </View>
-    <View style={styles.container}>
-      <View style={{width:50, height:50,backgroundColor:'powderblue'}}/>
-      <View style={{width:50, height:50,backgroundColor:'skyblue'}}/>
-      <View style={{width:50, height:50,backgroundColor:'red'}}/>
-    </View>
-  );
+    return(
+      <View style={{flex:1}}>
+        <View style={styles.ViewStyle}>
+            <Text style={styles.textStyle}>Albums</Text>
+    <Text>{testing}</Text>
+        </View>
+      </View>
+    )
 }
 
 const styles = StyleSheet.create({
-   container:{
-    flex:1,
-    flexDirection:'row',
-    justifyContent:'space-between',
-   },
-   
-  
-});
+  ViewStyle:{
+     backgroundColor:"#F8F8F8",
+     justifyContent:'center',
+     alignItems:'center',
+     height:60,
+     paddingTop:15,
+     shadowColor:'#000',
+     shadowOffset:{width:0,height:2},
+     shadowOpacity:0.2   
+  },
+  textStyle:{
+     fontSize:28 
+  }
+})
+
+export default App
