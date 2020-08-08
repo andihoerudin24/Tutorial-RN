@@ -6,9 +6,9 @@ import {
   View,
   ActivityIndicator,
 } from "react-native";
-
+import AlbmuDetail from './AlbumDetail'
 const Albumlist = (props) => {
-  const [data, setData] = useState();
+  const [album, setData] = useState();
 
   useEffect(() => {
     fetch("https://rallycoding.herokuapp.com/api/music_albums")
@@ -20,12 +20,12 @@ const Albumlist = (props) => {
   }, []);
   return (
     <View>
-      {!data ? (
+      {!album ? (
         <View style={styles.centered}>
           <ActivityIndicator size="large" color="red" />
         </View>
       ) : (
-        data.map((album) => <Text key={album.title}>{album.title}</Text>)
+        album.map((album) => <AlbmuDetail key={album.title} album={album} /> )
       )}
     </View>
   );
