@@ -19,7 +19,7 @@ const Albumlist = (props) => {
       .then((data1) => setData(data1));
   }, []);
   return (
-    <View>
+    <ScrollView>
       {!album ? (
         <View style={styles.centered}>
           <ActivityIndicator size="large" color="red" />
@@ -27,7 +27,7 @@ const Albumlist = (props) => {
       ) : (
         album.map((album) => <AlbmuDetail key={album.title} album={album} /> )
       )}
-    </View>
+    </ScrollView>
   );
 };
 const styles = StyleSheet.create({
