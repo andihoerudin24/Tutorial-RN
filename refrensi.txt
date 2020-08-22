@@ -1,0 +1,5 @@
+1. install navigation 
+2. setup navigation
+3. membuat kerangka login link kerangak login:https://pastebin.com/aSVNQX8G
+4. style login link style login:https://pastebin.com/nfhXYKmh
+5. logic untuk login
