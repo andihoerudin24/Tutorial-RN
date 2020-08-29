@@ -52,6 +52,7 @@ const Login = (props) => {
         onPress={() => {
           console.log("Signup");
         }}
+        
       >
         <Text style={styles.loginText}>Signup</Text>
       </TouchableOpacity>
