@@ -1,5 +1,7 @@
-1. install navigation 
-2. setup navigation
-3. membuat kerangka login link kerangak login:https://pastebin.com/aSVNQX8G
-4. style login link style login:https://pastebin.com/nfhXYKmh
-5. logic untuk login
+1. create database firebase
+1.1 try aplikasi in ios simulator
+2. create signup method firebase "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key="
+3. create login mehtod firebase "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key="
+5. logic signup and sign for destination dashboard (https://pastebin.com/j80txmvT)
+6. create loading for login dan signup
+7. create buttom back can't go back after login
