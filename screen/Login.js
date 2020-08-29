@@ -10,6 +10,53 @@ import {
 const Login = (props) => {
   const [email, Setemail] = useState();
   const [password, SetPassword] = useState();
+   
+  const AUthSign = async () =>{
+    const response = await fetch(
+      "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=",
+      {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify({
+          email: email,
+          password: password,
+          returnSecureToken: true
+        })
+      }
+    );
+    const resData = await response.json();
+    if(resData.ok){
+      console.log('okok')
+    }else{
+      console.log('error')
+    }
+  }
+
+  const AUthLogin = async () =>{
+    const response = await fetch(
+      "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=",
+      {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify({
+          email: email,
+          password: password,
+          returnSecureToken: true
+        })
+      }
+    );
+    const resData = await response.json();
+    if(resData.ok){
+      console.log('okok')
+    }else{
+      console.log('error')
+    }
+  }
+
   return (
     <View style={styles.container}>
       <Text style={styles.logo}>MyApp</Text>
@@ -42,17 +89,12 @@ const Login = (props) => {
         <Text style={styles.forget}>Forget Password</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.loginBtn}
-        onPress={() => {
-          props.navigation.navigate('Album')
-        }}
+        onPress={AUthLogin}
       >
         <Text style={styles.loginText}>Login</Text>
       </TouchableOpacity>
       <TouchableOpacity
-        onPress={() => {
-          console.log("Signup");
-        }}
-        
+        onPress={AUthLogin}
       >
         <Text style={styles.loginText}>Signup</Text>
       </TouchableOpacity>
